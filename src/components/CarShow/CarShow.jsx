@@ -6,13 +6,13 @@ import {
 } from "@react-three/drei";
 import {
   EffectComposer,
-  DepthOfField,
   Bloom,
   ChromaticAberration,
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import Boxes from "../Boxes/Boxes";
 import Car from "../Car/Car";
+import FloatingGrid from "../FloatingGrid/FloatingGrid";
 import Ground from "../Ground/Ground";
 import Rings from "../Rings/Rings";
 
@@ -37,7 +37,7 @@ const CarShow = () => {
         penumbra={0.5}
         position={[5, 5, 0]}
         castShadow
-        shadowBias={-0.0001}
+        shadow-bias={-0.0001}
       />
       <spotLight
         color={[0.14, 0.5, 1]}
@@ -46,11 +46,12 @@ const CarShow = () => {
         penumbra={0.5}
         position={[-5, 5, 0]}
         castShadow
-        shadowBias={-0.0001}
+        shadow-bias={-0.0001}
       />
       <Ground />
-      <Rings />
+      <FloatingGrid />
       <Boxes />
+      <Rings />
 
       <EffectComposer>
         <Bloom
