@@ -4,6 +4,13 @@ import {
   CubeCamera,
   Environment,
 } from "@react-three/drei";
+import {
+  EffectComposer,
+  DepthOfField,
+  Bloom,
+  ChromaticAberration,
+} from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
 import Boxes from "../Boxes/Boxes";
 import Car from "../Car/Car";
 import Ground from "../Ground/Ground";
@@ -44,6 +51,22 @@ const CarShow = () => {
       <Ground />
       <Rings />
       <Boxes />
+
+      <EffectComposer>
+        <Bloom
+          blendFunction={BlendFunction.ADD}
+          kernelSize={5}
+          intensity={1.3}
+          width={300}
+          height={300}
+          luminanceThreshold={0.2}
+          luminanceSmoothing={0.025}
+        />
+        <ChromaticAberration
+          blendFunction={BlendFunction.NORMAL}
+          offset={[0.0005, 0.0012]}
+        />
+      </EffectComposer>
     </>
   );
 };
