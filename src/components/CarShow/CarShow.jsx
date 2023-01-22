@@ -4,6 +4,7 @@ import {
   CubeCamera,
   Environment,
 } from "@react-three/drei";
+import Boxes from "../Boxes/Boxes";
 import Car from "../Car/Car";
 import Ground from "../Ground/Ground";
 import Rings from "../Rings/Rings";
@@ -42,6 +43,7 @@ const CarShow = () => {
       />
       <Ground />
       <Rings />
+      <Boxes />
     </>
   );
 };
